@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import Cards from './components/Cards/Cards'
+import CountryPicker from './components/CountryPicker/CountryPicker'
+import Chart from './components/Chart/Chart';
+import { Container, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+
+
+const useStyles = makeStyles({
+  title: {
+    marginTop: '20px !important',
+    marginBottom: '20px !important'
+  }
+})
+
+
 
 function App() {
+  const classes = useStyles()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Typography variant='h2' color='secondary' align='center' className={classes.title} >
+        COVID-19
+      </Typography >
+      <Cards />
+      <CountryPicker />
+      <Chart />
+    </Container>
   );
 }
 
